@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+:root {
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12)
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body{
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+.mytitle{
+    margin-top: 10px;
+}
+
+.container{
+    margin: 30px auto;
+    width: 410px;
+}
+
+h1{
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+h3{
+    border-bottom: 1px solid rgb(132, 132, 132);
+    padding-bottom: 10px;
+    margin: 40px 0 10px;
+}
+
+h4{
+    margin: 0;
+}
+
+.income-expense-container{
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 25px;
+    margin: 20px 0;
+}
+
+.income-expense-container > div{
+    flex: 1;
+    text-align: center;
+}
+
+.income-expense-container > div:first-of-type{
+    border-right: 1px solid red;
+}
+
+.money_plus{
+    color: #2ecc71;
+}
+
+.money_minus{
+    color: red;
+}
+
+label{
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input[type="text"] , input[type="number"]{
+    font-size: 16px;
+    border: 1px solid #dedede;
+    display: block;
+    border-radius: 2px;
+    padding: 10px;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+}
+
+.add_transaction_button{
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background: #4e2a82;
+    color: white;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    display: block;
+    width: 100%;
+}
+
+.list{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.list li{
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.list li.plus{
+    border-right: 5px solid #2ecc71;
+}
+
+.list li.minus {
+    border-right: 5px solid red;
+}
+
+.delete-btn{
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    border: 0;
+    font-size: 24px;
+    line-height: 24px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%,-50%);
+    opacity: 0;
+    transition:opacity 0.3s ease;
+}
+
+.list li:hover .delete-btn{
+    opacity: 1;
+}
+
+.add_transaction_button:focus,.delete-btn:focus{
+    outline: 0;
+}
+
