@@ -53,15 +53,36 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
 
+// function formatNumber(num) {
+//   // Use Intl.NumberFormat to format numbers with commas
+//   return new Intl.NumberFormat('en-US').format(num);
+// }
+
 function generateID() {
   return Math.floor(Math.random() * 1000000);
 }
+
+// function calculate_money() {
+//   const total_income = document.getElementById('money_plus');
+//   const total_expense = document.getElementById('money_minus');
+//   const amounts = Array.from(list.children).map((item) => {
+//     const amount = parseFloat(item.querySelector('span').textContent.replace(',', ''));
+//     return amount;
+//   });
+//   const total = amounts.reduce((result, item) => (result += item), 0).toFixed(2);
+//   const income = amounts.filter((item) => item > 0).reduce((result, item) => (result += item), 0).toFixed(2);
+//   const expense = (amounts.filter((item) => item < 0).reduce((result, item) => (result += item), 0) * -1).toFixed(2);
+//   console.log(total)
+//   balance.innerText = `฿` + formatNumber(total);
+//   total_income.innerText = `฿` + formatNumber(income);
+//   total_expense.innerText = `฿` + formatNumber(expense);
+// }
 
 function calculate_money() {
   const total_income = document.getElementById('money_plus');
   const total_expense = document.getElementById('money_minus');
   const amounts = Array.from(list.children).map((item) => {
-    const amount = parseFloat(item.querySelector('span').textContent.replace(',', ''));
+    const amount = parseFloat(item.querySelector('span').textContent.replace(/,/g, '')); // Remove commas
     return amount;
   });
   const total = amounts.reduce((result, item) => (result += item), 0).toFixed(2);
@@ -72,6 +93,7 @@ function calculate_money() {
   total_income.innerText = `฿` + formatNumber(income);
   total_expense.innerText = `฿` + formatNumber(expense);
 }
+
 
 async function addTransaction(e) {
   e.preventDefault();
